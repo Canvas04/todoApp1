@@ -26,7 +26,7 @@ class Task extends Component {
           <span className='created'>{this.props.date} created</span>
         </label>
         <button className='icon icon-edit'></button>
-        <button className='icon icon-destroy'></button>
+        <button className='icon icon-destroy' onClick={this.props.onDeleted}></button>
       </div>
     )
   }

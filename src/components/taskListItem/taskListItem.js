@@ -8,7 +8,7 @@ Component {
        
         return (
             <li className={this.props.className}>
-                <Task stateTask = {this.props.stateTask} date={this.props.date} />
+                <Task stateTask = {this.props.stateTask} date={this.props.date} onDeleted = {this.props.onDeleted}/>
             </li>
         )
     }
