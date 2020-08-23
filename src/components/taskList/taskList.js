@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Task from '../task';
 import './taskList.css';
-import { formatDistanceToNow} from 'date-fns';
+import { formatDistanceToNow } from 'date-fns';
+import { parseWithOptions } from 'date-fns/fp';
+import TaskListItem from '../taskListItem';
 
-const TodoList = () => {
-  return (
-    <ul className='todo-list' >
-      <li className='completed'>
-        <Task state='Completed' date={formatDistanceToNow(new Date())} />
-      </li>
+class TodoList extends Component {
+  render() {
+    const elements = this.props.todos.map(el => {
+      return (
+        <TaskListItem className={el.className} stateTask={el.text} key={el.id} date= {el.date}/>
+      )
+    })
+    return (
+      <ul className='todo-list' >
+        {elements}
+      </ul>
+    )
+  }
 
-      <li className='editing'>
-        <Task state='Completed ' date={formatDistanceToNow(new Date())} />
-        <input type='text' className='edit' value='Editing task' />
-      </li>
-      <li>
-        <Task state=' Active ' date={formatDistanceToNow(new Date())} />
-      </li>
-    </ul>
-  )
 }
 export default TodoList;

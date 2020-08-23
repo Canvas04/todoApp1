@@ -8,8 +8,8 @@ const Task = (props) => {
       <div className='view'>
         <input className='toggle' type='checkbox' />
         <label>
-          <span className='description'>{props.state} task</span>{' '}
-          <span className='created'>created {props.date} ago</span>
+          <span className='description'>{props.stateTask}</span>{' '}
+          <span className='created'>{props.date} created</span>
         </label>
         <button className='icon icon-edit'></button>
         <button className='icon icon-destroy'></button>
