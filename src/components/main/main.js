@@ -7,7 +7,7 @@ class Main extends Component {
   render() {
     return (
       <section className='main'>
-        <TodoList todos = {this.props.todos}/>
+        <TodoList todos = {this.props.todos} />
         <Footer />
       </section>
     )

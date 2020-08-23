@@ -11,18 +11,18 @@ class App extends Component {
 
   state = {
     data: [
-      { id: 1, text: 'Completed Task', important: false, done: false, date: formatDistanceToNow(new Date()) ,className:'completed'},
-      { id: 2, text: 'Editing Task', important: false, done: false, date: formatDistanceToNow(new Date()) , className:'editing'},
+      { id: 1, text: 'Completed Task', important: false, done: false, date: formatDistanceToNow(new Date()), className: 'completed' },
+      { id: 2, text: 'Editing Task', important: false, done: false, date: formatDistanceToNow(new Date()) },
       { id: 3, text: 'Active Task', important: false, done: false, date: formatDistanceToNow(new Date()) },
     ]
   }
 
-
+  
   render() {
     return (
       <section className='todoApp'>
         <Header />
-        <Main todos = {this.state.data}/>
+        <Main todos={this.state.data} />
       </section>
     )
 

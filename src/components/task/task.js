@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './task.css';
 
 
-const Task = (props) => {
-
+class Task extends Component {
+  state = {
+    done: false
+  }
+  overLine = () => {
+    this.setState(state => {
+      return {
+        done: !state.done
+      }
+    })
+  }
+  render() {
+    let classNames = 'description';
+    if (this.state.done) {
+      classNames += ' completed-task';
+    }
     return (
       <div className='view'>
         <input className='toggle' type='checkbox' />
         <label>
-          <span className='description'>{props.stateTask}</span>{' '}
-          <span className='created'>{props.date} created</span>
+          <span className={classNames} onClick={this.overLine}>{this.props.stateTask}</span>{' '}
+          <span className='created'>{this.props.date} created</span>
         </label>
         <button className='icon icon-edit'></button>
         <button className='icon icon-destroy'></button>
@@ -17,4 +31,6 @@ const Task = (props) => {
     )
   }
 
-  export default Task;
+}
+
+export default Task;
