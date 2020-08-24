@@ -8,7 +8,7 @@ import Main from './components/main';
 import { formatDistanceToNow } from 'date-fns';
 
 class App extends Component {
-
+  idItem = 100;
   state = {
     data: [
       { id: 1, text: 'Completed Task', important: false, done: false, date: formatDistanceToNow(new Date()), className: 'completed' },
@@ -17,7 +17,6 @@ class App extends Component {
     ]
   }
   removeItem = (id) => {
-console.log(id)
     this.setState(({ data }) => {
       const idx = data.filter(el => el.id);
       data.splice(idx, 1)
@@ -29,11 +28,24 @@ console.log(id)
       }
     })
   }
+  addItem = (text) => {
+    const newObj = {
+      id: this.idItem++,
+      text: text,
+      date: formatDistanceToNow(new Date())
+    }
 
+    this.setState(({ data }) => {
+      const newArr = [...data, newObj];
+      return {
+        data: newArr
+  }
+    })
+  }
   render() {
     return (
       <section className='todoApp'>
-        <Header />
+        <Header addItem = {this.addItem}/>
         <Main todos={this.state.data} onDeleted={this.removeItem} />
       </section>
     )
