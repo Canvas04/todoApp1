@@ -7,7 +7,7 @@ class Main extends Component {
   render() {
     return (
       <section className='main'>
-        <TodoList todos = {this.props.todos} onDeleted = {this.props.onDeleted} onToggleDone = {this.props.onToggleDone}/>
+        <TodoList todos = {this.props.todos} done = {this.props.done} onDeleted = {this.props.onDeleted} onToggleDone = {this.props.onToggleDone}/>
         <Footer />
       </section>
     )

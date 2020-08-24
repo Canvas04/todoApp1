@@ -3,19 +3,10 @@ import './task.css';
 
 
 class Task extends Component {
-  state = {
-    done: false
-  }
-  overLine = () => {
-    this.setState(state => {
-      return {
-        done: !state.done
-      }
-    })
-  }
+  
   render() {
     let classNames = 'description';
-    if (this.state.done) {
+    if (this.props.done) {
       classNames += ' completed-task';
     }
     return (

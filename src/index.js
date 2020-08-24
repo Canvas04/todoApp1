@@ -11,10 +11,18 @@ class App extends Component {
   idItem = 100;
   state = {
     data: [
-      { id: 1, text: 'Completed Task', important: false, done: false, date: formatDistanceToNow(new Date()), className: 'completed' },
-      { id: 2, text: 'Editing Task', important: false, done: false, date: formatDistanceToNow(new Date()) },
-      { id: 3, text: 'Active Task', important: false, done: false, date: formatDistanceToNow(new Date()) },
+      this.createTodoItem('Completed task'),
+      this.createTodoItem('Editing Task'),
+      this.createTodoItem('Active Task')
     ]
+  }
+  createTodoItem  (text) {
+    return {
+      id: this.idItem++,
+      text: text,
+      date: formatDistanceToNow(new Date()),
+      done: false
+    }
   }
   removeItem = (id) => {
     this.setState(({ data }) => {
@@ -29,27 +37,38 @@ class App extends Component {
     })
   }
   addItem = (text) => {
-    const newObj = {
-      id: this.idItem++,
-      text: text,
-      date: formatDistanceToNow(new Date())
-    }
+    const newObj = this.createTodoItem(text)
 
     this.setState(({ data }) => {
       const newArr = [...data, newObj];
       return {
         data: newArr
-  }
+      }
     })
   }
   onToggleDone = (id) => {
-console.log('Done', id)
+    this.setState(({ data }) => {
+      
+      const idx = data.filter(el => el[id]);
+      console.log(idx);
+     const oldItem = data[idx];
+     const newItem = {...oldItem,done:!oldItem.done};
+     const newArray = [
+       ...data.slice(0,idx),
+       newItem,
+       ...data.slice(idx + 1)
+     ];
+     return {
+       data: newArray
+     }
+    })
+
   }
   render() {
     return (
       <section className='todoApp'>
-        <Header addItem = {this.addItem}/>
-        <Main todos={this.state.data} onDeleted={this.removeItem} onToggleDone={this.onToggleDone} />
+        <Header addItem={this.addItem} />
+        <Main todos={this.state.data} done ={this.state.data.done} onDeleted={this.removeItem} onToggleDone={this.onToggleDone} />
       </section>
     )
 
