@@ -22,7 +22,7 @@ class Task extends Component {
       <div className='view'>
         <input className='toggle' type='checkbox' />
         <label>
-          <span className={classNames} onClick={this.overLine}>{this.props.stateTask}</span>{' '}
+          <span className={classNames} onClick={this.props.onToggleDone}>{this.props.stateTask}</span>{' '}
           <span className='created'>{this.props.date} created</span>
         </label>
         <button className='icon icon-edit'></button>

@@ -42,11 +42,14 @@ class App extends Component {
   }
     })
   }
+  onToggleDone = (id) => {
+console.log('Done', id)
+  }
   render() {
     return (
       <section className='todoApp'>
         <Header addItem = {this.addItem}/>
-        <Main todos={this.state.data} onDeleted={this.removeItem} />
+        <Main todos={this.state.data} onDeleted={this.removeItem} onToggleDone={this.onToggleDone} />
       </section>
     )
 
