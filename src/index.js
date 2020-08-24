@@ -49,8 +49,7 @@ class App extends Component {
   onToggleDone = (id) => {
     this.setState(({ data }) => {
       
-      const idx = data.filter(el => el[id]);
-      console.log(idx);
+      const idx = data.findIndex(el => el.id === id);
      const oldItem = data[idx];
      const newItem = {...oldItem,done:!oldItem.done};
      const newArray = [
