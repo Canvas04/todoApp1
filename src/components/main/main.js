@@ -8,7 +8,7 @@ class Main extends Component {
     return (
       <section className='main'>
         <TodoList todos = {this.props.todos} done = {this.props.done} onDeleted = {this.props.onDeleted} onToggleDone = {this.props.onToggleDone}/>
-        <Footer />
+        <Footer doneCount={this.props.doneCount} todoCount={this.props.todoCount}/>
       </section>
     )
   }
