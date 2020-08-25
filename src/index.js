@@ -8,6 +8,7 @@ import Main from './components/main';
 import { formatDistanceToNow } from 'date-fns';
 
 class App extends Component {
+  
   idItem = 100;
   state = {
     data: [

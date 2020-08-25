@@ -3,7 +3,14 @@ import FilterList from '../taskFilter';
 import './footer.css';
 class Footer extends Component {
     state = {
-        countTask: this.props.todoCount + this.props.doneCount
+        countTask: ''
+    }
+    normalState = () => {
+        this.setState(() => {
+            return {
+                countTask: ''
+            }
+        })
     }
     handlerDone = () => {
         this.setState(() => {
@@ -12,6 +19,7 @@ class Footer extends Component {
             }
 
         })
+        setTimeout(this.normalState,3000);
     }
 
     handlerActive = () => {
@@ -21,6 +29,7 @@ class Footer extends Component {
             }
 
         })
+        setTimeout(this.normalState,3000);
     }
 handlerAll = () => {
     this.setState(() => {
@@ -29,6 +38,7 @@ handlerAll = () => {
         }
 
     });
+    setTimeout(this.normalState,3000);
 }
 
     render() {
