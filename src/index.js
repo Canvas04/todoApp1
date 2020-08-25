@@ -21,7 +21,7 @@ class App extends Component {
       id: this.idItem++,
       text: text,
       date: formatDistanceToNow(new Date()),
-      done: false
+      done: false,
     }
   }
   removeItem = (id) => {
@@ -62,6 +62,15 @@ class App extends Component {
      }
     })
 
+  }
+   handlerAll = () => {
+  return this.state.data.length;
+  }
+   handlerDone = () => {
+    
+  }
+ handlerActive = () => {
+   
   }
   render() {
     const doneCount = this.state.data.filter(el => el.done).length;
