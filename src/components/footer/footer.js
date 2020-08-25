@@ -47,7 +47,7 @@ handlerAll = () => {
                 <span className='todo-count'>{this.props.todoCount} left, {this.props.doneCount} done</span>
                 <span className='tab-count'>{this.state.countTask}</span>
                 <FilterList todoCount={this.props.todoCount} doneCount={this.props.doneCount} onHandlerDone={this.handlerDone} onHandlerActive = {this.handlerActive} onHandlerAll = {this.handlerAll}/>
-                <button className='clear-completed'>Clear completed</button>
+                <button className='clear-completed' onClick={this.props.removeCompletedItem}>Clear completed</button>
             </footer>
 
         )

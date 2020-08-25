@@ -73,6 +73,20 @@ class App extends Component {
  handlerActive = () => {
    
   }
+
+  removeCompletedItem = (id) => {
+    this.setState(({data}) => {
+      let done = []
+      done.push(data.findIndex(el => el.done));
+      data.splice(done, 1)
+      const before = data.slice(0, done);
+      const after = data.slice(done + 1);
+      const resArr = [...before, ...after]
+      return {
+        data: resArr
+      }
+    })
+  }
   render() {
     const doneCount = this.state.data.filter(el => el.done).length;
     const todoCount = this.state.data.length - doneCount;
@@ -81,7 +95,7 @@ class App extends Component {
     return (
       <section className='todoApp'>
         <Header addItem={this.addItem} />
-        <Main todos={this.state.data} done ={this.state.data.done} doneCount = {doneCount} todoCount = {todoCount} onDeleted={this.removeItem} onToggleDone={this.onToggleDone} />
+        <Main todos={this.state.data} done ={this.state.data.done} doneCount = {doneCount} todoCount = {todoCount} onDeleted={this.removeItem} onToggleDone={this.onToggleDone} removeCompletedItem = {this.removeCompletedItem}/>
       </section>
     )
 

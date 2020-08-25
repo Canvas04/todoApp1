@@ -1,6 +1,6 @@
 import React from 'react';
 import './taskFilter.css';
-const FilterList = ({ doneCount, todoCount ,tabCount, onHandlerDone,onHandlerActive,onHandlerAll}) => {
+const FilterList = ({ onHandlerDone,onHandlerActive,onHandlerAll}) => {
   
   return (
 
