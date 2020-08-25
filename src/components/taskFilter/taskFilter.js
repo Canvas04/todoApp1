@@ -6,13 +6,13 @@ const FilterList = ({ doneCount, todoCount ,tabCount, onHandlerDone,onHandlerAct
 
     <ul className='filters'>
       <li>
-        <button className='selected' onClick={onHandlerAll}>All</button>
+        <button  onClick={onHandlerAll}>All</button>
       </li>
       <li>
-        <button onClick={onHandlerActive}>Active</button>
+        <button onClick={onHandlerActive} >Active</button>
       </li>
       <li>
-        <button onClick = {onHandlerDone}>Completed</button>
+        <button onClick = {onHandlerDone} >Completed</button>
       </li>
     </ul>
   )
