@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './task.css';
-
+import PropTypes from 'prop-types';
 
 class Task extends Component {
   
@@ -24,4 +24,18 @@ class Task extends Component {
 
 }
 
+Task.defaultProps = {
+  done: '',
+  onToggleDone: () => {},
+  stateTask: '',
+  date: '',
+  onDeleted: () => {}
+}
+Task.propTypes = {
+  done: PropTypes.string,
+  onToggleDone: PropTypes.func,
+  stateTask: PropTypes.string,
+  date: PropTypes.string,
+  onDeleted: PropTypes.func
+}
 export default Task;

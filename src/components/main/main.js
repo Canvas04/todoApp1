@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import PropTypes from 'prop-types';
 import TodoList from '../taskList';
 import Footer from '../footer';
 import './main.css';
@@ -20,5 +21,15 @@ Main.defaultProps = {
   onDeleted : () => {},
   onToggleDone : () => {},
   removeCompletedItem : () => {}
+}
+
+Main.propTypes = {
+  todos: PropTypes.array,
+  done: PropTypes.number,
+  onDeleted : PropTypes.func,
+  onToggleDone : PropTypes.func,
+  doneCount: PropTypes.number,
+  todoCount: PropTypes.number,
+  removeCompletedItem: PropTypes.func
 }
 export default Main;

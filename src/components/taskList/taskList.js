@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Task from '../task';
 import './taskList.css';
+import PropTypes from 'prop-types';
 import { formatDistanceToNow } from 'date-fns';
 import { parseWithOptions } from 'date-fns/fp';
 import TaskListItem from '../taskListItem';
@@ -22,7 +23,11 @@ class TodoList extends Component {
 
 }
 TodoList.defaultProps = {
-  todos: []
+  todos: [],
+  onToggleDone: () => {}
 }
-
+TodoList.propTypes = {
+  todos: PropTypes.array,
+  onToggleDone: PropTypes.func
+}
 export default TodoList;

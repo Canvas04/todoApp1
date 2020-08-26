@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './header.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import PropTypes from 'prop-types';
 import ButtonAdd from '../buttonAdd';
 class Header extends Component {
 state = {
@@ -32,5 +33,11 @@ state = {
         )
     }
 
+}
+Header.defaultProps ={
+addItem : () => {}
+}
+Header.propTypes = {
+addItem : PropTypes.func
 }
 export default Header;

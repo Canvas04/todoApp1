@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FilterList from '../taskFilter';
+import PropTypes from 'prop-types';
 import './footer.css';
 class Footer extends Component {
     state = {
@@ -19,7 +20,7 @@ class Footer extends Component {
             }
 
         })
-        setTimeout(this.normalState,3000);
+        setTimeout(this.normalState,5000);
     }
 
     handlerActive = () => {
@@ -29,7 +30,7 @@ class Footer extends Component {
             }
 
         })
-        setTimeout(this.normalState,3000);
+        setTimeout(this.normalState,5000);
     }
 handlerAll = () => {
     this.setState(() => {
@@ -56,6 +57,14 @@ handlerAll = () => {
 }
 
 Footer.defaultProps = {
-    removeCompletedItem: () => {}
+    removeCompletedItem: () => {},
+    doneCount: 0,
+    todoCount: 0,
+   
+}
+Footer.propTypes = {
+    removeCompletedItem: PropTypes.func,
+    doneCount: PropTypes.number,
+    todoCount: PropTypes.number
 }
 export default Footer;

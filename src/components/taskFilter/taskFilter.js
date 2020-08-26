@@ -1,5 +1,6 @@
 import React from 'react';
 import './taskFilter.css';
+import PropTypes from 'prop-types';
 const FilterList = ({ onHandlerDone,onHandlerActive,onHandlerAll}) => {
   
   return (
@@ -21,5 +22,10 @@ FilterList.defaultProps = {
   onHandlerAll: () => {},
   onHandlerActive : () => {},
   onHandlerDone : () => {}
+}
+FilterList.propTypes = {
+  onHandlerAll: PropTypes.func,
+  onHandlerActive: PropTypes.func,
+  onHandlerDone: PropTypes.func
 }
 export default FilterList;

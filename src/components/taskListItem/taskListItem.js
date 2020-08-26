@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Task from '../task';
-import './taskListItem.css'
+import './taskListItem.css';
+import PropTypes from 'prop-types';
 export default class TaskListItem extends 
 Component {
 
@@ -12,4 +13,21 @@ Component {
             </li>
         )
     }
+}
+
+TaskListItem.defaultProps = {
+    className: '',
+    stateTask: '',
+    date: '',
+    onDeleted: () => {},
+    onToggleDone: () => {},
+    done: false
+}
+TaskListItem.propTypes = {
+    className: PropTypes.string,
+    stateTask: PropTypes.string,
+    date: PropTypes.string,
+    onDeleted: PropTypes.func,
+    onToggleDone: PropTypes.func,
+    done: PropTypes.bool
 }
