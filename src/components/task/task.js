@@ -25,14 +25,14 @@ class Task extends Component {
 }
 
 Task.defaultProps = {
-  done: '',
+  done: false,
   onToggleDone: () => {},
   stateTask: '',
   date: '',
   onDeleted: () => {}
 }
 Task.propTypes = {
-  done: PropTypes.string,
+  done: PropTypes.bool,
   onToggleDone: PropTypes.func,
   stateTask: PropTypes.string,
   date: PropTypes.string,
