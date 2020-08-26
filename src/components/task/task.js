@@ -16,7 +16,7 @@ class Task extends Component {
           <span className={classNames} onClick={this.props.onToggleDone}>{this.props.stateTask}</span>{' '}
           <span className='created'>{this.props.date} created ago</span>
         </label>
-        <button className='icon icon-edit'></button>
+        <button className='icon icon-edit' onClick ={this.props.changeItem}></button>
         <button className='icon icon-destroy ' onClick={this.props.onDeleted}></button>
       </div>
     )

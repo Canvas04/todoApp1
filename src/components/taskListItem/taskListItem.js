@@ -9,7 +9,7 @@ Component {
        
         return (
             <li className={this.props.className}>
-                <Task stateTask = {this.props.stateTask} date={this.props.date} onDeleted = {this.props.onDeleted} onToggleDone = {this.props.onToggleDone} done={this.props.done}/>
+                <Task stateTask = {this.props.stateTask} date={this.props.date} onDeleted = {this.props.onDeleted} onToggleDone = {this.props.onToggleDone} done={this.props.done} changeItem = {this.props.changeItem} />
             </li>
         )
     }
