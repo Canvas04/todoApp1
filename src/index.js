@@ -8,8 +8,9 @@ import Main from './components/main';
 import { formatDistanceToNow } from 'date-fns';
 
 class App extends Component {
-  
+
   idItem = 100;
+  date = new Date();
   state = {
     data: [
       this.createTodoItem('Completed task'),
@@ -17,11 +18,12 @@ class App extends Component {
       this.createTodoItem('Active Task')
     ]
   }
-  createTodoItem  (text) {
+  createTodoItem(text) {
     return {
       id: this.idItem++,
       text: text,
-      date: formatDistanceToNow(new Date()),
+      time: new Date(),
+      date: formatDistanceToNow(this.date,{includeSeconds: true}),
       done: false,
     }
   }
@@ -49,33 +51,33 @@ class App extends Component {
   }
   onToggleDone = (id) => {
     this.setState(({ data }) => {
-      
+
       const idx = data.findIndex(el => el.id === id);
-     const oldItem = data[idx];
-     const newItem = {...oldItem,done:!oldItem.done};
-     const newArray = [
-       ...data.slice(0,idx),
-       newItem,
-       ...data.slice(idx + 1)
-     ];
-     return {
-       data: newArray
-     }
+      const oldItem = data[idx];
+      const newItem = { ...oldItem, done: !oldItem.done };
+      const newArray = [
+        ...data.slice(0, idx),
+        newItem,
+        ...data.slice(idx + 1)
+      ];
+      return {
+        data: newArray
+      }
     })
 
   }
-   handlerAll = () => {
-  return this.state.data.length;
+  handlerAll = () => {
+    return this.state.data.length;
   }
-   handlerDone = () => {
-    
+  handlerDone = () => {
+
   }
- handlerActive = () => {
-   
+  handlerActive = () => {
+
   }
 
   removeCompletedItem = (id) => {
-    this.setState(({data}) => {
+    this.setState(({ data }) => {
       let done = []
       done.push(data.findIndex(el => el.done));
       data.splice(done, 1)
@@ -91,11 +93,11 @@ class App extends Component {
     const doneCount = this.state.data.filter(el => el.done).length;
     const todoCount = this.state.data.length - doneCount;
     const allCount = this.state.data.length;
-    
+
     return (
       <section className='todoApp'>
         <Header addItem={this.addItem} />
-        <Main todos={this.state.data} done ={this.state.data.done} doneCount = {doneCount} todoCount = {todoCount} onDeleted={this.removeItem} onToggleDone={this.onToggleDone} removeCompletedItem = {this.removeCompletedItem}/>
+        <Main todos={this.state.data} done={this.state.data.done} doneCount={doneCount} todoCount={todoCount} onDeleted={this.removeItem} onToggleDone={this.onToggleDone} removeCompletedItem={this.removeCompletedItem} />
       </section>
     )
 
@@ -103,4 +105,5 @@ class App extends Component {
 
 }
 
-ReactDOM.render(<App />, document.querySelector('#root'))
+ReactDOM.render(<App />, document.querySelector('#root'));
+

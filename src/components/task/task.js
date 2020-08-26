@@ -14,7 +14,7 @@ class Task extends Component {
         <input className='toggle' type='checkbox' />
         <label>
           <span className={classNames} onClick={this.props.onToggleDone}>{this.props.stateTask}</span>{' '}
-          <span className='created'>{this.props.date} created</span>
+          <span className='created'>{this.props.date} created ago</span>
         </label>
         <button className='icon icon-edit'></button>
         <button className='icon icon-destroy ' onClick={this.props.onDeleted}></button>
