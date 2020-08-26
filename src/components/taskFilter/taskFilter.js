@@ -17,5 +17,9 @@ const FilterList = ({ onHandlerDone,onHandlerActive,onHandlerAll}) => {
     </ul>
   )
 }
-
+FilterList.defaultProps = {
+  onHandlerAll: () => {},
+  onHandlerActive : () => {},
+  onHandlerDone : () => {}
+}
 export default FilterList;

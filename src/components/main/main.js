@@ -4,6 +4,7 @@ import TodoList from '../taskList';
 import Footer from '../footer';
 import './main.css';
 class Main extends Component {
+  
   render() {
     return (
       <section className='main'>
@@ -15,4 +16,9 @@ class Main extends Component {
 
 }
 
+Main.defaultProps = {
+  onDeleted : () => {},
+  onToggleDone : () => {},
+  removeCompletedItem : () => {}
+}
 export default Main;

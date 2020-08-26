@@ -21,4 +21,8 @@ class TodoList extends Component {
   }
 
 }
+TodoList.defaultProps = {
+  todos: []
+}
+
 export default TodoList;

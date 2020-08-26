@@ -38,7 +38,7 @@ handlerAll = () => {
         }
 
     });
-    setTimeout(this.normalState,3000);
+    setTimeout(this.normalState,5000);
 }
 
     render() {
@@ -53,5 +53,9 @@ handlerAll = () => {
         )
     }
 
+}
+
+Footer.defaultProps = {
+    removeCompletedItem: () => {}
 }
 export default Footer;
