@@ -23,8 +23,9 @@ class App extends Component {
       id: this.idItem++,
       text: text,
       time: new Date(),
-      date: formatDistanceToNow(this.date,{includeSeconds: true}),
+      date: formatDistanceToNow(this.date, { includeSeconds: true }),
       done: false,
+      editing: false,
     }
   }
   removeItem = (id) => {
@@ -66,7 +67,7 @@ class App extends Component {
     })
 
   }
-  
+
   removeCompletedItem = (id) => {
     this.setState(({ data }) => {
       let done = []
@@ -81,7 +82,20 @@ class App extends Component {
     })
   }
   changeItem = (id) => {
-    console.log(id);
+    
+    this.setState(({ data }) => {
+      const elemOnId = data.filter(el => el.id === id);
+      const newElem = elemOnId.map(el => el.editing = true);
+      const idx = data.filter(el => el.id);
+      data.splice(idx, 1,...elemOnId);
+      const before = data.slice(0, idx);
+      const after = data.slice(idx + 1);
+      const resArr = [...before, ...after];
+      return {
+        data: resArr
+      }
+    })
+    
   }
   render() {
     const doneCount = this.state.data.filter(el => el.done).length;
@@ -90,8 +104,8 @@ class App extends Component {
 
     return (
       <section className='todoApp'>
-        <Header addItem={this.addItem} />
-        <Main todos={this.state.data} done={this.state.data.done} doneCount={doneCount} todoCount={todoCount} onDeleted={this.removeItem} onToggleDone={this.onToggleDone} removeCompletedItem={this.removeCompletedItem} changeItem={this.changeItem}/>
+        <Header addItem={this.addItem} changeItem={this.changeItem}/>
+        <Main todos={this.state.data} done={this.state.data.done} doneCount={doneCount} todoCount={todoCount} onDeleted={this.removeItem} onToggleDone={this.onToggleDone}  removeCompletedItem={this.removeCompletedItem} changeItem={this.changeItem} />
       </section>
     )
 

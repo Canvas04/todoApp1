@@ -3,20 +3,37 @@ import './task.css';
 import PropTypes from 'prop-types';
 
 class Task extends Component {
-  
+
   render() {
     let classNames = 'description';
     if (this.props.done) {
       classNames += ' completed-task';
     }
+    
+  let editingElem;
+  if(this.props.editing) {
+    editingElem = (
+      <span><input className={classNames} onClick={this.props.onToggleDone} value={this.props.stateTask}/>{' '}
+              <span className='created'>{this.props.date} created ago</span>
+              </span>
+      )
+  }else {
+    editingElem = (
+      <span>
+        <span className={classNames} onClick={this.props.onToggleDone} >{this.props.stateTask}</span>{' '}
+          <span className='created'>{this.props.date} created ago</span>
+      </span>
+    )
+  }
     return (
       <div className='view'>
         <input className='toggle' type='checkbox' />
         <label>
-          <span className={classNames} onClick={this.props.onToggleDone}>{this.props.stateTask}</span>{' '}
-          <span className='created'>{this.props.date} created ago</span>
+          {/* <span className={classNames} onClick={this.props.onToggleDone} >{this.props.stateTask}</span>{' '}
+          <span className='created'>{this.props.date} created ago</span> */}
+{editingElem}
         </label>
-        <button className='icon icon-edit' onClick ={this.props.changeItem}></button>
+        <button className='icon icon-edit' onClick={this.props.changeItem} ></button>
         <button className='icon icon-destroy ' onClick={this.props.onDeleted}></button>
       </div>
     )
@@ -26,10 +43,10 @@ class Task extends Component {
 
 Task.defaultProps = {
   done: false,
-  onToggleDone: () => {},
+  onToggleDone: () => { },
   stateTask: '',
   date: '',
-  onDeleted: () => {}
+  onDeleted: () => { }
 }
 Task.propTypes = {
   done: PropTypes.bool,

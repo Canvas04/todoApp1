@@ -20,11 +20,16 @@ state = {
             label: ''
         })
     }
+onChangeItem = (e) => {
+e.preventDefault();
+console.log('все норм')
+}
+
     render() {
         return (
             <header className='header'>
                 <h1>todos</h1>
-                <form className='form-inline' onSubmit = {this.onSubmit}>
+                <form className='form-inline' onSubmit = {this.onSubmit} id='formTodo'>
                     <div className='input-block-el'>
                         <input className='new-todo' placeholder='What needs to be done ?' onChange={this.onLabelChange} value = {this.state.label} autoFocus /></div>
                     <ButtonAdd addItem={this.onSubmit} />
