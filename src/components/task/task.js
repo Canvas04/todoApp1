@@ -13,26 +13,26 @@ class Task extends Component {
   let editingElem;
   if(this.props.editing) {
     editingElem = (
-      <span><input className={classNames} onClick={this.props.onToggleDone} value={this.props.stateTask}/>{' '}
+      <label><input className={classNames}  defaultValue={this.props.stateTask}/>{' '}
               <span className='created'>{this.props.date} created ago</span>
-              </span>
+              </label>
       )
   }else {
     editingElem = (
-      <span>
+      <label>
         <span className={classNames} onClick={this.props.onToggleDone} >{this.props.stateTask}</span>{' '}
           <span className='created'>{this.props.date} created ago</span>
-      </span>
+      </label>
     )
   }
     return (
       <div className='view'>
         <input className='toggle' type='checkbox' />
-        <label>
+        <form>
           {/* <span className={classNames} onClick={this.props.onToggleDone} >{this.props.stateTask}</span>{' '}
           <span className='created'>{this.props.date} created ago</span> */}
 {editingElem}
-        </label>
+        </form>
         <button className='icon icon-edit' onClick={this.props.changeItem} ></button>
         <button className='icon icon-destroy ' onClick={this.props.onDeleted}></button>
       </div>
