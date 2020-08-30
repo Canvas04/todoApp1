@@ -82,7 +82,22 @@ class App extends Component {
       }
     })
   }
-
+  changeItem = (id) => {
+    this.setState(({ data }) => {
+      const idx = data.findIndex(el => el.id == id);
+      const oldItem = data[idx];
+      const newItem = { ...oldItem, editing: !oldItem.done };
+      const newArray = [
+        ...data.slice(0, idx),
+        newItem,
+        ...data.slice(idx + 1)
+      ];
+      console.log(newArray)
+      return {
+        data: newArray
+      }
+    })
+  }
 
   render() {
     const doneCount = this.state.data.filter(el => el.done).length;
