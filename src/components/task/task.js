@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 class Task extends Component {
 
+
   render() {
     let classNames = 'description';
     if (this.props.done) {
@@ -20,7 +21,7 @@ class Task extends Component {
   }else {
     editingElem = (
       <label>
-        <span className={classNames} onClick={this.props.onToggleDone} >{this.props.stateTask}</span>{' '}
+        <span className={classNames} onClick={this.props.onToggleDone}>{this.props.stateTask}</span>{' '}
           <span className='created'>{this.props.date} created ago</span>
       </label>
     )
@@ -28,12 +29,12 @@ class Task extends Component {
     return (
       <div className='view'>
         <input className='toggle' type='checkbox' />
-        <form>
+        <form onSubmit={this.onSubmit}>
           {/* <span className={classNames} onClick={this.props.onToggleDone} >{this.props.stateTask}</span>{' '}
           <span className='created'>{this.props.date} created ago</span> */}
 {editingElem}
         </form>
-        <button className='icon icon-edit' onClick={this.props.changeItem} ></button>
+        <button className='icon icon-edit'  ></button>
         <button className='icon icon-destroy ' onClick={this.props.onDeleted}></button>
       </div>
     )

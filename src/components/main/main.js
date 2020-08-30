@@ -9,7 +9,7 @@ class Main extends Component {
   render() {
     return (
       <section className='main'>
-        <TodoList todos = {this.props.todos} done = {this.props.done} onDeleted = {this.props.onDeleted} onToggleDone = {this.props.onToggleDone}  changeItem = {this.props.changeItem} />
+        <TodoList todos = {this.props.todos} done = {this.props.done} onDeleted = {this.props.onDeleted} onToggleDone = {this.props.onToggleDone}  changeItem = {this.props.changeItem} onSubmit={this.props.onSubmit} />
         <Footer doneCount={this.props.doneCount} todoCount={this.props.todoCount} removeCompletedItem={this.props.removeCompletedItem}/>
       </section>
     )

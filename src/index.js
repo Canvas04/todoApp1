@@ -6,6 +6,7 @@ import Header from './components/header';
 import TodoList from './components/taskList';
 import Main from './components/main';
 import { formatDistanceToNow } from 'date-fns';
+import { array } from 'prop-types';
 
 class App extends Component {
 
@@ -70,33 +71,19 @@ class App extends Component {
 
   removeCompletedItem = (id) => {
     this.setState(({ data }) => {
-      let done = []
-      done.push(data.findIndex(el => el.done));
-      data.splice(done, 1)
-      const before = data.slice(0, done);
-      const after = data.slice(done + 1);
-      const resArr = [...before, ...after]
+      let doneIdArr = []
+      data.filter(el => el.done).forEach(el => {
+        let { id } = el;
+        doneIdArr.push(id)
+      })
+      let resArr = data.filter(item => !doneIdArr.includes(item.id));
       return {
         data: resArr
       }
     })
   }
-  changeItem = (id) => {
-    
-    this.setState(({ data }) => {
-      const elemOnId = data.filter(el => el.id === id);
-      const newElem = elemOnId.map(el => el.editing = true);
-      const idx = data.filter(el => el.id);
-      data.splice(idx, 1,...elemOnId);
-      const before = data.slice(0, idx);
-      const after = data.slice(idx + 1);
-      const resArr = [...before, ...after];
-      return {
-        data: resArr
-      }
-    })
-    
-  }
+
+
   render() {
     const doneCount = this.state.data.filter(el => el.done).length;
     const todoCount = this.state.data.length - doneCount;
@@ -104,8 +91,8 @@ class App extends Component {
 
     return (
       <section className='todoApp'>
-        <Header addItem={this.addItem} changeItem={this.changeItem}/>
-        <Main todos={this.state.data} done={this.state.data.done} doneCount={doneCount} todoCount={todoCount} onDeleted={this.removeItem} onToggleDone={this.onToggleDone}  removeCompletedItem={this.removeCompletedItem} changeItem={this.changeItem} />
+        <Header addItem={this.addItem} changeItem={this.changeItem} />
+        <Main todos={this.state.data} done={this.state.data.done} doneCount={doneCount} todoCount={todoCount} onDeleted={this.removeItem} onToggleDone={this.onToggleDone} removeCompletedItem={this.removeCompletedItem} changeItem={this.changeItem} onSubmit={this.onSubmit} />
       </section>
     )
 
