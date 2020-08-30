@@ -14,7 +14,7 @@ class Task extends Component {
   let editingElem;
   if(this.props.editing) {
     editingElem = (
-      <label><input className={classNames}  defaultValue={this.props.stateTask}/>{' '}
+      <label><input className={classNames} onChange={this.props.onChangeHandler} defaultValue={this.props.stateTask}/>{' '}
               <span className='created'>{this.props.date} created ago</span>
               </label>
       )
@@ -29,7 +29,7 @@ class Task extends Component {
     return (
       <div className='view'>
         <input className='toggle' type='checkbox' />
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.props.onSubmit}>
           {/* <span className={classNames} onClick={this.props.onToggleDone} >{this.props.stateTask}</span>{' '}
           <span className='created'>{this.props.date} created ago</span> */}
 {editingElem}
