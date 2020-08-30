@@ -20,7 +20,10 @@ class Main extends Component {
 Main.defaultProps = {
   onDeleted : () => {},
   onToggleDone : () => {},
-  removeCompletedItem : () => {}
+  removeCompletedItem : () => {},
+  onChangeHandler: () => {},
+  onSubmit: () => {},
+  changeItem: () => {}
 }
 
 Main.propTypes = {
@@ -30,6 +33,9 @@ Main.propTypes = {
   onToggleDone : PropTypes.func,
   doneCount: PropTypes.number,
   todoCount: PropTypes.number,
-  removeCompletedItem: PropTypes.func
+  removeCompletedItem: PropTypes.func,
+  onChangeHandler: PropTypes.func,
+  onSubmit: PropTypes.func,
+  changeItem: PropTypes.func
 }
 export default Main;

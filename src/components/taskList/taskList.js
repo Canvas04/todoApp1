@@ -24,10 +24,16 @@ class TodoList extends Component {
 }
 TodoList.defaultProps = {
   todos: [],
-  onToggleDone: () => {}
+  onToggleDone: () => {},
+  onChangeHandler: () => {},
+  onSubmit: () => {},
+  changeItem: () => {}
 }
 TodoList.propTypes = {
   todos: PropTypes.array,
-  onToggleDone: PropTypes.func
+  onToggleDone: PropTypes.func,
+  onChangeHandler: PropTypes.func,
+  onSubmit: PropTypes.func,
+  changeItem: PropTypes.func
 }
 export default TodoList;

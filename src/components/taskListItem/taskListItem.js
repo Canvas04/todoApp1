@@ -21,7 +21,10 @@ TaskListItem.defaultProps = {
     date: '',
     onDeleted: () => {},
     onToggleDone: () => {},
-    done: false
+    done: false,
+    onChangeHandler: () => {},
+  onSubmit: () => {},
+  changeItem: () => {}
 }
 TaskListItem.propTypes = {
     className: PropTypes.string,
@@ -29,5 +32,8 @@ TaskListItem.propTypes = {
     date: PropTypes.string,
     onDeleted: PropTypes.func,
     onToggleDone: PropTypes.func,
-    done: PropTypes.bool
+    done: PropTypes.bool,
+    onChangeHandler: PropTypes.func,
+    onSubmit: PropTypes.func,
+    changeItem: PropTypes.func
 }
