@@ -84,10 +84,6 @@ class App extends Component {
     })
   }
   changeItem = (id) => {
-    let getId = (cb) => {
-      cb(id)
-    }
-   
     this.setState(({ data }) => {
       const idx = data.findIndex(el => el.id == id);
       const oldItem = data[idx];
@@ -110,7 +106,7 @@ onChangeHandler = (id,e) => {
     
     const idx = data.findIndex(el => el.id === id);
     const oldItem = data[idx];
-    const newItem = { ...oldItem, text: e.target.value };
+    const newItem = { ...oldItem, text: e.target.value,date: formatDistanceToNow(this.date, { includeSeconds: true }) };
     const newArray = [
       ...data.slice(0, idx),
       newItem,
