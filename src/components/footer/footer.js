@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import FilterList from '../taskFilter';
 import PropTypes from 'prop-types';
+import FilterList from '../taskFilter';
 import './footer.css';
+
 class Footer extends Component {
     state = {
         countTask: ''
     }
+
     normalState = () => {
         this.setState(() => {
             return {
@@ -13,6 +15,7 @@ class Footer extends Component {
             }
         })
     }
+
     handlerDone = () => {
         this.setState(() => {
             return {
@@ -32,6 +35,7 @@ class Footer extends Component {
         })
         setTimeout(this.normalState,5000);
     }
+
 handlerAll = () => {
     this.setState(() => {
         return {

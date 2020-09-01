@@ -1,6 +1,7 @@
 import React from 'react';
 import './taskFilter.css';
 import PropTypes from 'prop-types';
+
 const FilterList = ({ onHandlerDone,onHandlerActive,onHandlerAll}) => {
   
   return (

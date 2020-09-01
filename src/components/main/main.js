@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import TodoList from '../taskList';
 import Footer from '../footer';
 import './main.css';
+
 class Main extends Component {
   
   render() {

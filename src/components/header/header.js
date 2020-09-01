@@ -3,10 +3,12 @@ import './header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PropTypes from 'prop-types';
 import ButtonAdd from '../buttonAdd';
+
 class Header extends Component {
 state = {
     label: ''
 }
+
     onLabelChange = (e) => {
         this.setState( {
             label: e.target.value
@@ -20,6 +22,7 @@ state = {
             label: ''
         })
     }
+
 onChangeItem = (e) => {
 e.preventDefault();
 console.log('все норм')

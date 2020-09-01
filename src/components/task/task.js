@@ -32,8 +32,8 @@ class Task extends Component {
         <form onSubmit={this.props.onSubmit}>
           {editingElem}
         </form>
-        <button className='icon icon-edit' onClick={this.props.changeItem} ></button>
-        <button className='icon icon-destroy ' onClick={this.props.onDeleted}></button>
+        <button className='icon icon-edit' onClick={this.props.changeItem}  />
+        <button className='icon icon-destroy ' onClick={this.props.onDeleted} />
       </div>
     )
   }

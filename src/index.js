@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+import { formatDistanceToNow } from 'date-fns';
+import { array } from 'prop-types';
+import { getByTestId } from '@testing-library/react';
 import Footer from './components/footer'
 import Header from './components/header';
 import TodoList from './components/taskList';
 import Main from './components/main';
-import { formatDistanceToNow } from 'date-fns';
-import { array } from 'prop-types';
-import { getByTestId } from '@testing-library/react';
 
 class App extends Component {
 
   idItem = 100;
+
   date = new Date();
+
   state = {
     data: [
       this.createTodoItem('Completed task'),
@@ -20,16 +22,18 @@ class App extends Component {
       this.createTodoItem('Active Task')
     ]
   }
+
   createTodoItem(text) {
     return {
       id: this.idItem++,
-      text: text,
+      text,
       time: new Date(),
       date: formatDistanceToNow(this.date, { includeSeconds: true }),
       done: false,
       editing: false,
     }
   }
+
   removeItem = (id) => {
     this.setState(({ data }) => {
       const idx = data.filter(el => el.id);
@@ -42,6 +46,7 @@ class App extends Component {
       }
     })
   }
+
   addItem = (text) => {
     const newObj = this.createTodoItem(text)
 
@@ -52,6 +57,7 @@ class App extends Component {
       }
     })
   }
+
   onToggleDone = (id) => {
     this.setState(({ data }) => {
 
@@ -72,17 +78,18 @@ class App extends Component {
 
   removeCompletedItem = (id) => {
     this.setState(({ data }) => {
-      let doneIdArr = []
+      const doneIdArr = []
       data.filter(el => el.done).forEach(el => {
-        let { id } = el;
+        const { id } = el;
         doneIdArr.push(id)
       })
-      let resArr = data.filter(item => !doneIdArr.includes(item.id));
+      const resArr = data.filter(item => !doneIdArr.includes(item.id));
       return {
         data: resArr
       }
     })
   }
+
   changeItem = (id) => {
     this.setState(({ data }) => {
       const idx = data.findIndex(el => el.id == id);
@@ -118,6 +125,7 @@ onChangeHandler = (id,e) => {
   })
   
 }
+
 onSubmit = (id,e) => {
   e.preventDefault();
   this.setState(({ data }) => {
@@ -136,6 +144,7 @@ onSubmit = (id,e) => {
   })
    
 }
+
   render() {
 
     const doneCount = this.state.data.filter(el => el.done).length;

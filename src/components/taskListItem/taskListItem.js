@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Task from '../task';
 import './taskListItem.css';
 import PropTypes from 'prop-types';
+
 export default class TaskListItem extends 
 Component {
 
