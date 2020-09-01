@@ -1,42 +1,42 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './task.css';
-import PropTypes, { bool } from 'prop-types';
+import PropTypes from 'prop-types';
 
-class Task extends Component {
+function Task({done,editing,onChangeHandler,stateTask,date,onToggleDone,onSubmit,changeItem,onDeleted}) {
 
 
-  render() {
+ 
     let classNames = 'description';
-    if (this.props.done) {
+    if (done) {
       classNames += ' completed-task';
     }
 
     let editingElem;
-    if (this.props.editing) {
+    if (editing) {
       editingElem = (
-        <label><input className={classNames} onChange={this.props.onChangeHandler} defaultValue={this.props.stateTask} />{' '}
-          <span className='created'>{this.props.date} created ago</span>
+        <label><input className={classNames} onChange={onChangeHandler} defaultValue={stateTask} />{' '}
+          <span className='created'>{date} created ago</span>
         </label>
       )
     } else {
       editingElem = (
         <label>
-          <span className={classNames} onClick={this.props.onToggleDone}>{this.props.stateTask}</span>{' '}
-          <span className='created'>{this.props.date} created ago</span>
+          <a href='#' className={classNames} onClick={onToggleDone} onKeyDown={onToggleDone}>{stateTask}</a>{' '}
+          <span className='created'>{date} created ago</span>
         </label>
       )
     }
     return (
       <div className='view'>
         <input className='toggle' type='checkbox' />
-        <form onSubmit={this.props.onSubmit}>
+        <form onSubmit={onSubmit}>
           {editingElem}
         </form>
-        <button className='icon icon-edit' onClick={this.props.changeItem}  />
-        <button className='icon icon-destroy ' onClick={this.props.onDeleted} />
+        <button type='button' className='icon icon-edit' onClick={changeItem}  />
+        <button type='button' className='icon icon-destroy' onClick={onDeleted} />
       </div>
     )
-  }
+  
 
 }
 

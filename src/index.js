@@ -58,7 +58,9 @@ class App extends Component {
     })
   }
 
-  onToggleDone = (id) => {
+  onToggleDone = (id,e) => {
+    e.preventDefault();
+    console.log(e)
     this.setState(({ data }) => {
 
       const idx = data.findIndex(el => el.id === id);

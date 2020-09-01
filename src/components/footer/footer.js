@@ -18,8 +18,9 @@ class Footer extends Component {
 
     handlerDone = () => {
         this.setState(() => {
+            const {doneCount} = this.props
             return {
-                countTask: this.props.doneCount
+                countTask: doneCount
             }
 
         })
@@ -28,8 +29,9 @@ class Footer extends Component {
 
     handlerActive = () => {
         this.setState(() => {
+            const {todoCount} = this.props
             return {
-                countTask: this.props.todoCount
+                countTask: todoCount
             }
 
         })
@@ -38,8 +40,9 @@ class Footer extends Component {
 
 handlerAll = () => {
     this.setState(() => {
+        const {todoCount,doneCount} = this.props;
         return {
-            countTask: this.props.todoCount + this.props.doneCount
+            countTask: todoCount + doneCount,
         }
 
     });
@@ -47,12 +50,14 @@ handlerAll = () => {
 }
 
     render() {
+        const {todoCount,doneCount,removeCompletedItem} = this.props;
+        const {countTask} = this.state;
         return (
             <footer className='footer'>
-                <span className='todo-count'>{this.props.todoCount} left, {this.props.doneCount} done</span>
-                <span className='tab-count'>{this.state.countTask}</span>
-                <FilterList todoCount={this.props.todoCount} doneCount={this.props.doneCount} onHandlerDone={this.handlerDone} onHandlerActive = {this.handlerActive} onHandlerAll = {this.handlerAll}/>
-                <button className='clear-completed' onClick={this.props.removeCompletedItem}>Clear completed</button>
+                <span className='todo-count'>{todoCount} left, {doneCount} done</span>
+                <span className='tab-count'>{countTask}</span>
+                <FilterList todoCount={todoCount} doneCount={doneCount} onHandlerDone={this.handlerDone} onHandlerActive = {this.handlerActive} onHandlerAll = {this.handlerAll}/>
+                <button type='button' className='clear-completed' onClick={removeCompletedItem}>Clear completed</button>
             </footer>
 
         )

@@ -1,22 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import PropTypes from 'prop-types';
 import TodoList from '../taskList';
 import Footer from '../footer';
 import './main.css';
 
-class Main extends Component {
-  
-  render() {
-    return (
+function Main({todos,done,onDeleted,onToggleDone,changeItem,onSubmit,onChangeHandler,doneCount,todoCount,removeCompletedItem}) {
+  return (
       <section className='main'>
-        <TodoList todos = {this.props.todos} done = {this.props.done} onDeleted = {this.props.onDeleted} onToggleDone = {this.props.onToggleDone}  changeItem = {this.props.changeItem} onSubmit={this.props.onSubmit} onChangeHandler= {this.props.onChangeHandler} />
-        <Footer doneCount={this.props.doneCount} todoCount={this.props.todoCount} removeCompletedItem={this.props.removeCompletedItem}/>
+        <TodoList todos = {todos} done = {done} onDeleted = {onDeleted} onToggleDone = {onToggleDone}  changeItem = {changeItem} onSubmit={onSubmit} onChangeHandler= {onChangeHandler} />
+        <Footer doneCount={doneCount} todoCount={todoCount} removeCompletedItem={removeCompletedItem}/>
       </section>
     )
   }
-
-}
 
 Main.defaultProps = {
   onDeleted : () => {},
@@ -28,12 +24,13 @@ Main.defaultProps = {
 }
 
 Main.propTypes = {
-  todos: PropTypes.array,
-  done: PropTypes.number,
+  todos: PropTypes.arrayOf(PropTypes.shape({id: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,date:PropTypes.string.isRequired,editing: PropTypes.bool.isRequired})).isRequired,
+  done: PropTypes.bool,
   onDeleted : PropTypes.func,
   onToggleDone : PropTypes.func,
-  doneCount: PropTypes.number,
-  todoCount: PropTypes.number,
+  doneCount: PropTypes.number.isRequired,
+  todoCount: PropTypes.number.isRequired,
   removeCompletedItem: PropTypes.func,
   onChangeHandler: PropTypes.func,
   onSubmit: PropTypes.func,

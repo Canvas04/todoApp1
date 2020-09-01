@@ -11,7 +11,7 @@ class TodoList extends Component {
     
     const elements = this.props.todos.map(el => {
       return (
-        <TaskListItem className={el.className} done = {el.done} stateTask={el.text} key={el.id} date= {el.date} onDeleted = {this.props.onDeleted} onToggleDone = {() => this.props.onToggleDone(el.id)} changeItem = { () => this.props.changeItem(el.id)} editing={el.editing} onSubmit={(e) => this.props.onSubmit(el.id,e)}  onChangeHandler= {(e) => this.props.onChangeHandler(el.id,e)}/>
+        <TaskListItem className={el.className} done = {el.done} stateTask={el.text} key={el.id} date= {el.date} onDeleted = {this.props.onDeleted} onToggleDone = {(e) => this.props.onToggleDone(el.id,e)} changeItem = { () => this.props.changeItem(el.id)} editing={el.editing} onSubmit={(e) => this.props.onSubmit(el.id,e)}  onChangeHandler= {(e) => this.props.onChangeHandler(el.id,e)}/>
       )
     })
     return (

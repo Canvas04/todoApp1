@@ -3,9 +3,11 @@
       "airbnb",
       "airbnb/hooks",
       "eslint-config-prettier",
-      "prettier/react"
+      "prettier/react",
+      "eslint:recommended",
+      "plugin:react/recommended"
     ],
-    "plugins": ["react","eslint-plugin-import"],
+    "plugins": ["react"],
     "parser": "babel-eslint",
     "env": {
       "browser": true,
@@ -14,7 +16,10 @@
     "rules": {
       "curly": ["error"],
       "max-depth": ["warn", 4],
-      "id-length": ["warn", { "exceptions": ["i", "j"], "min": 2 }],
+      "id-length": ["warn", { "exceptions": ["i", "j"], "min": 1 }],
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "react/jsx-uses-react": "error",   
+      "react/jsx-uses-vars": "error",
       "no-lonely-if": ["error"],
       "no-plusplus": ["error", {"allowForLoopAfterthoughts": true}],
       "no-restricted-syntax": "off",

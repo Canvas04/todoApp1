@@ -16,8 +16,10 @@ state = {
     }
 
     onSubmit = (e) => {
+        const {addItem} = this.props;
+        const {label} = this.state;
         e.preventDefault();
-        this.props.addItem(this.state.label);
+        addItem(label);
         this.setState({
             label: ''
         })
@@ -25,16 +27,16 @@ state = {
 
 onChangeItem = (e) => {
 e.preventDefault();
-console.log('все норм')
 }
 
     render() {
+        const {label} = this.state;
         return (
             <header className='header'>
                 <h1>todos</h1>
                 <form className='form-inline' onSubmit = {this.onSubmit} id='formTodo'>
                     <div className='input-block-el'>
-                        <input className='new-todo' placeholder='What needs to be done ?' onChange={this.onLabelChange} value = {this.state.label} autoFocus /></div>
+                        <input className='new-todo' placeholder='What needs to be done ?' onChange={this.onLabelChange} value = {label} /></div> 
                     <ButtonAdd addItem={this.onSubmit} />
                 </form>
             </header>
