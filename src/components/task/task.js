@@ -6,7 +6,7 @@ function Task({done,editing,onChangeHandler,stateTask,date,onToggleDone,onSubmit
 
 
  
-    let classNames = 'description';
+    let classNames = 'description ';
     if (done) {
       classNames += ' completed-task';
     }
@@ -14,14 +14,14 @@ function Task({done,editing,onChangeHandler,stateTask,date,onToggleDone,onSubmit
     let editingElem;
     if (editing) {
       editingElem = (
-        <label><input className={classNames} onChange={onChangeHandler} defaultValue={stateTask} />{' '}
+        <label className='label'><input className='description form-control' onChange={onChangeHandler} defaultValue={stateTask} />{' '}
           <span className='created'>{date} created ago</span>
         </label>
       )
     } else {
       editingElem = (
-        <label>
-          <a href='#' className={classNames} onClick={onToggleDone} onKeyDown={onToggleDone}>{stateTask}</a>{' '}
+        <label >
+          <a href='#id' className={classNames} onClick={onToggleDone} onKeyDown={onToggleDone}>{stateTask}</a>{' '}
           <span className='created'>{date} created ago</span>
                  
         </label>
@@ -30,7 +30,7 @@ function Task({done,editing,onChangeHandler,stateTask,date,onToggleDone,onSubmit
     return (
       <div className='view'>
         <input className='toggle' type='checkbox' />
-        <form onSubmit={onSubmit} id='form'>
+        <form onSubmit={onSubmit} >
           {editingElem}
 
         <button  aria-label = 'Edit' type='button'  className='icon icon-edit' onClick={changeItem}  />

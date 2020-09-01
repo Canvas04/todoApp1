@@ -20,7 +20,7 @@ function TodoList ({todos,onDeleted,onToggleDone,changeItem,onSubmit,onChangeHan
 
 }
 TodoList.defaultProps = {
-  todos: [],
+  
   onToggleDone: () => {},
   onChangeHandler: () => {},
   onSubmit: () => {},
@@ -28,7 +28,7 @@ TodoList.defaultProps = {
   onDeleted: () => {}
 }
 TodoList.propTypes = {
-  todos: PropTypes.arrayOf(),
+  todos: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   onToggleDone: PropTypes.func,
   onChangeHandler: PropTypes.func,
   onSubmit: PropTypes.func,

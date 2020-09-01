@@ -66,3 +66,6 @@
 .description:hover {
 	text-decoration: none;
 }
+.form-control {
+	flex-basis: 50%;
+}
