@@ -1,19 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Task from '../task';
 import './taskListItem.css';
-import PropTypes from 'prop-types';
 
-export default class TaskListItem extends 
-Component {
 
-    render() {
-       
-        return (
-            <li className={this.props.className}>
-                <Task stateTask = {this.props.stateTask} date={this.props.date} onDeleted = {this.props.onDeleted} onToggleDone = {this.props.onToggleDone} done={this.props.done} changeItem = {this.props.changeItem} editing={this.props.editing} onSubmit={this.props.onSubmit} onChangeHandler= {this.props.onChangeHandler}/>
+export default function TaskListItem ({className,stateTask,date,onDeleted,onToggleDone,done,changeItem,editing,onSubmit,onChangeHandler})  {
+
+    return (
+            <li className={className}>
+                <Task stateTask = {stateTask} date={date} onDeleted = {onDeleted} onToggleDone = {onToggleDone} done={done} changeItem = {changeItem} editing={editing} onSubmit={onSubmit} onChangeHandler= {onChangeHandler}/>
             </li>
         )
-    }
+    
 }
 
 TaskListItem.defaultProps = {
@@ -24,8 +22,9 @@ TaskListItem.defaultProps = {
     onToggleDone: () => {},
     done: false,
     onChangeHandler: () => {},
-  onSubmit: () => {},
-  changeItem: () => {}
+    onSubmit: () => {},
+    changeItem: () => {},
+    editing: false
 }
 TaskListItem.propTypes = {
     className: PropTypes.string,
@@ -36,5 +35,6 @@ TaskListItem.propTypes = {
     done: PropTypes.bool,
     onChangeHandler: PropTypes.func,
     onSubmit: PropTypes.func,
-    changeItem: PropTypes.func
+    changeItem: PropTypes.func,
+    editing: PropTypes.bool
 }

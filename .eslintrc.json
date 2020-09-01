@@ -21,7 +21,7 @@
       "react/jsx-uses-react": "error",   
       "react/jsx-uses-vars": "error",
       "no-lonely-if": ["error"],
-      "no-plusplus": ["error", {"allowForLoopAfterthoughts": true}],
+      "no-plusplus": "off",
       "no-restricted-syntax": "off",
       "class-methods-use-this": "off",
       "jsx-a11y/href-no-hash": ["off"],

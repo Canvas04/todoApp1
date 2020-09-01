@@ -8,13 +8,13 @@ const FilterList = ({ onHandlerDone,onHandlerActive,onHandlerAll}) => {
 
     <ul className='filters'>
       <li>
-        <button  onClick={onHandlerAll}>All</button>
+        <button type='button' onClick={onHandlerAll}>All</button>
       </li>
       <li>
-        <button onClick={onHandlerActive} >Active</button>
+        <button type='button' onClick={onHandlerActive} >Active</button>
       </li>
       <li>
-        <button onClick = {onHandlerDone} >Completed</button>
+        <button type='button' onClick = {onHandlerDone} >Completed</button>
       </li>
     </ul>
   )
