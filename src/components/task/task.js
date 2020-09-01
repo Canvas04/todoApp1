@@ -23,17 +23,20 @@ function Task({done,editing,onChangeHandler,stateTask,date,onToggleDone,onSubmit
         <label>
           <a href='#' className={classNames} onClick={onToggleDone} onKeyDown={onToggleDone}>{stateTask}</a>{' '}
           <span className='created'>{date} created ago</span>
+                 
         </label>
       )
     }
     return (
       <div className='view'>
         <input className='toggle' type='checkbox' />
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} id='form'>
           {editingElem}
+
+        <button  aria-label = 'Edit' type='button'  className='icon icon-edit' onClick={changeItem}  />
+        <button  aria-label = 'Delete' type='button' className='icon icon-destroy' onClick={onDeleted} />
         </form>
-        <button type='button' className='icon icon-edit' onClick={changeItem}  />
-        <button type='button' className='icon icon-destroy' onClick={onDeleted} />
+        
       </div>
     )
   

@@ -26,7 +26,7 @@ Main.defaultProps = {
 Main.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({id: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,date:PropTypes.string.isRequired,editing: PropTypes.bool.isRequired})).isRequired,
-  done: PropTypes.bool,
+  done: PropTypes.bool.isRequired,
   onDeleted : PropTypes.func,
   onToggleDone : PropTypes.func,
   doneCount: PropTypes.number.isRequired,

@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
-import Task from '../task';
+import React from 'react';
 import './taskList.css';
 import PropTypes from 'prop-types';
-import { formatDistanceToNow } from 'date-fns';
-import { parseWithOptions } from 'date-fns/fp';
 import TaskListItem from '../taskListItem';
 
-class TodoList extends Component {
-  render() {
+function TodoList ({todos,onDeleted,onToggleDone,changeItem,onSubmit,onChangeHandler}) {
+  
     
-    const elements = this.props.todos.map(el => {
+    const elements = todos.map(el => {
       return (
-        <TaskListItem className={el.className} done = {el.done} stateTask={el.text} key={el.id} date= {el.date} onDeleted = {this.props.onDeleted} onToggleDone = {(e) => this.props.onToggleDone(el.id,e)} changeItem = { () => this.props.changeItem(el.id)} editing={el.editing} onSubmit={(e) => this.props.onSubmit(el.id,e)}  onChangeHandler= {(e) => this.props.onChangeHandler(el.id,e)}/>
+        <TaskListItem className={el.className} done = {el.done} stateTask={el.text} key={el.id} date= {el.date} onDeleted = {onDeleted} onToggleDone = {(e) => onToggleDone(el.id,e)} changeItem = { () => changeItem(el.id)} editing={el.editing} onSubmit={(e) => onSubmit(el.id,e)}  onChangeHandler= {(e) => onChangeHandler(el.id,e)}/>
       )
     })
     return (
@@ -19,7 +16,7 @@ class TodoList extends Component {
         {elements}
       </ul>
     )
-  }
+  
 
 }
 TodoList.defaultProps = {
@@ -27,13 +24,15 @@ TodoList.defaultProps = {
   onToggleDone: () => {},
   onChangeHandler: () => {},
   onSubmit: () => {},
-  changeItem: () => {}
+  changeItem: () => {},
+  onDeleted: () => {}
 }
 TodoList.propTypes = {
-  todos: PropTypes.array,
+  todos: PropTypes.arrayOf(),
   onToggleDone: PropTypes.func,
   onChangeHandler: PropTypes.func,
   onSubmit: PropTypes.func,
-  changeItem: PropTypes.func
+  changeItem: PropTypes.func,
+  onDeleted: PropTypes.func
 }
 export default TodoList;
