@@ -5,16 +5,16 @@ import React  from 'react';
 /* eslint-enable */
 import PropTypes from 'prop-types';
 
-export default function ButtonAdd({onSubmit}) {
+export default function ButtonAdd({addItem}) {
 
         return  (
-            <button type="button" className='btn btn-info' onClick={onSubmit}>Add item</button>
+            <button type="button" className='btn btn-info' onClick={addItem}>Add item</button>
         )
     
 }
 ButtonAdd.defaultProps = {
-    onSubmit : () => {}
+    addItem : () => {}
 }
 ButtonAdd.propTypes = {
-    onSubmit : PropTypes.func
+    addItem : PropTypes.func
 }
