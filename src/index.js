@@ -20,10 +20,10 @@ class App extends Component {
 
   removeItem = (id) => {
     this.setState(({ data }) => {
-     const newArr = data.filter(el => el.id !== id)
-   return {
-     data: newArr
-   }
+      const newArr = data.filter((el) => el.id !== id);
+      return {
+        data: newArr,
+      };
     });
   };
 
@@ -54,16 +54,9 @@ class App extends Component {
     });
   };
 
-  removeCompletedItem = (id) => {
+  removeCompletedItem = () => {
     this.setState(({ data }) => {
-      const doneIdArr = [];
-      data
-        .filter((el) => el.done)
-        .forEach((el) => {
-          const { idEl } = el;
-          doneIdArr.push(idEl);
-        });
-      const resArr = data.filter((item) => !doneIdArr.includes(item[id]));
+      const resArr = data.filter((el) => !el.done);
       return {
         data: resArr,
       };
