@@ -15,7 +15,6 @@ function Task({done,editing,onChangeHandler,stateTask,date,onToggleDone,onSubmit
     if (editing) {
       editingElem = (
         <label className='label'><input className='description form-control' onChange={onChangeHandler} defaultValue={stateTask} />{' '}
-          <span className='created'>{date} created ago</span>
         </label>
       )
     } else {
@@ -23,7 +22,8 @@ function Task({done,editing,onChangeHandler,stateTask,date,onToggleDone,onSubmit
         <label >
           <a href='#id' className={classNames} onClick={onToggleDone} onKeyDown={onToggleDone}>{stateTask}</a>{' '}
           <span className='created'>{date} created ago</span>
-                 
+                 <button  aria-label = 'Edit' type='button'  className='icon icon-edit' onClick={changeItem}  />
+        <button  aria-label = 'Delete' type='button' className='icon icon-destroy' onClick={onDeleted} />  
         </label>
       )
     }
@@ -33,8 +33,8 @@ function Task({done,editing,onChangeHandler,stateTask,date,onToggleDone,onSubmit
         <form onSubmit={onSubmit} >
           {editingElem}
 
-        <button  aria-label = 'Edit' type='button'  className='icon icon-edit' onClick={changeItem}  />
-        <button  aria-label = 'Delete' type='button' className='icon icon-destroy' onClick={onDeleted} />
+        
+        
         </form>
         
       </div>

@@ -67,5 +67,8 @@
 	text-decoration: none;
 }
 .form-control {
-	flex-basis: 50%;
+	flex-basis: 100%;
+}
+.display {
+	display: none;
 }
