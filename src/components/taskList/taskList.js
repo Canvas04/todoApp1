@@ -8,7 +8,7 @@ function TodoList ({todos,onDeleted,onToggleDone,changeItem,onSubmit,onChangeHan
     
     const elements = todos.map(el => {
       return (
-        <TaskListItem className={el.className} done = {el.done} stateTask={el.text} key={el.id} date= {el.date} onDeleted = {onDeleted} onToggleDone = {(e) => onToggleDone(el.id,e)} changeItem = { () => changeItem(el.id)} editing={el.editing} onSubmit={(e) => onSubmit(el.id,e)}  onChangeHandler= {(e) => onChangeHandler(el.id,e)}/>
+        <TaskListItem className={el.className} done = {el.done} stateTask={el.text} key={el.id} date= {el.date} onDeleted = {() => onDeleted(el.id)} onToggleDone = {(e) => onToggleDone(el.id,e)} changeItem = { () => changeItem(el.id)} editing={el.editing} onSubmit={(e) => onSubmit(el.id,e)}  onChangeHandler= {(e) => onChangeHandler(el.id,e)}/>
       )
     })
     return (

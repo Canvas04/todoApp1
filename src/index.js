@@ -18,16 +18,12 @@ class App extends Component {
     ],
   };
 
-  removeItem = () => {
+  removeItem = (id) => {
     this.setState(({ data }) => {
-      const idx = data.filter((el) => el.id);
-      data.splice(idx, 1);
-      const before = data.slice(0, idx);
-      const after = data.slice(idx + 1);
-      const resArr = [...before, ...after];
-      return {
-        data: resArr,
-      };
+     const newArr = data.filter(el => el.id !== id)
+   return {
+     data: newArr
+   }
     });
   };
 
@@ -40,7 +36,7 @@ class App extends Component {
         return el;
       });
       return {
-        data: [...newTime,newObj]
+        data: [...newTime, newObj],
       };
     });
   };
@@ -107,7 +103,8 @@ class App extends Component {
       const newItem = {
         ...oldItem,
         editing: !oldItem.editing,
-        date: formatDistanceToNow(new Date(), { includeSeconds: true }), time:new Date()
+        date: formatDistanceToNow(new Date(), { includeSeconds: true }),
+        time: new Date(),
       };
       const newArray = [...data.slice(0, idx), newItem, ...data.slice(idx + 1)];
       return {
