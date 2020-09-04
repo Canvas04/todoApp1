@@ -35,12 +35,12 @@ class App extends Component {
     const newObj = this.createTodoItem(text);
     this.setState(({ data }) => {
       newObj.date = formatDistanceToNow(new Date(), { includeSeconds: true });
-      const newArr = [...data, newObj];
       const newTime = data.map((el) => {
-        el.date = formatDistanceToNow(this.date, { includeSeconds: true });
+        el.date = formatDistanceToNow(el.time, { includeSeconds: true });
+        return el;
       });
       return {
-        data: newArr,
+        data: [...newTime,newObj]
       };
     });
   };
