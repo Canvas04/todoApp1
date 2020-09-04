@@ -2,31 +2,31 @@ import React from 'react';
 import './taskFilter.css';
 import PropTypes from 'prop-types';
 
-const FilterList = ({ onHandlerDone,onHandlerActive,onHandlerAll}) => {
+const FilterList = ({handlerAll,handlerActive,handlerDone }) => {
   
   return (
 
     <ul className='filters'>
       <li>
-        <button type='button' onClick={onHandlerAll}>All</button>
+        <button type='button' onClick={handlerAll}>All</button>
       </li>
       <li>
-        <button type='button' onClick={onHandlerActive} >Active</button>
+        <button type='button' onClick={handlerActive} >Active</button>
       </li>
       <li>
-        <button type='button' onClick = {onHandlerDone} >Completed</button>
+        <button type='button' onClick = {handlerDone} >Completed</button>
       </li>
     </ul>
   )
 }
 FilterList.defaultProps = {
-  onHandlerAll: () => {},
-  onHandlerActive : () => {},
-  onHandlerDone : () => {}
+  handlerAll: () => {},
+  handlerActive: () => {},
+  handlerDone: () => {},
 }
 FilterList.propTypes = {
-  onHandlerAll: PropTypes.func,
-  onHandlerActive: PropTypes.func,
-  onHandlerDone: PropTypes.func
+  handlerAll: PropTypes.func,
+  handlerActive: PropTypes.func,
+  handlerDone: PropTypes.func,
 }
 export default FilterList;

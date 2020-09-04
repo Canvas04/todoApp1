@@ -106,6 +106,32 @@ class App extends Component {
     });
   };
 
+
+handlerAll = () => {
+  
+const {data} = this.state;
+console.log(data);
+this.setState({
+  data: [...data]
+})
+}
+
+handlerActive = () => {
+  const {data} = this.state;
+const active = data.filter(el => !el.done)
+ this.setState({
+   data: active
+ })
+}
+
+handlerDone = () => {
+  const {data} = this.state;
+const done = data.filter(el => el.done);
+this.setState({
+  data: done
+})
+}
+
   createTodoItem(text) {
     return {
       id: this.idItem++,
@@ -130,6 +156,9 @@ class App extends Component {
           done={data.done}
           doneCount={doneCount}
           todoCount={todoCount}
+          handlerAll={this.handlerAll}
+          handlerActive={this.handlerActive}
+          handlerDone={this.handlerDone}
           onDeleted={this.removeItem}
           onToggleDone={this.onToggleDone}
           removeCompletedItem={this.removeCompletedItem}
