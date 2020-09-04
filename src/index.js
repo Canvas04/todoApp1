@@ -107,7 +107,7 @@ class App extends Component {
       const newItem = {
         ...oldItem,
         editing: !oldItem.editing,
-        date: formatDistanceToNow(new Date(), { includeSeconds: true }),
+        date: formatDistanceToNow(new Date(), { includeSeconds: true }), time:new Date()
       };
       const newArray = [...data.slice(0, idx), newItem, ...data.slice(idx + 1)];
       return {
