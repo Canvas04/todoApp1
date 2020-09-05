@@ -28,16 +28,18 @@ function Task({done,editing,onChangeHandler,stateTask,date,onToggleDone,onSubmit
       )
     }
     return (
+       <form onSubmit={onSubmit} >
       <div className='view'>
         <input className='toggle' type='checkbox' />
-        <form onSubmit={onSubmit} >
+       
           {editingElem}
 
         
         
-        </form>
+       
         
       </div>
+       </form>
     )
   
 
