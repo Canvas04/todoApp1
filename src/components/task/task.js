@@ -7,19 +7,21 @@ function Task({done,editing,onChangeHandler,stateTask,date,onToggleDone,onSubmit
 
  
     let classNames = 'description ';
+    let classNameLabel = 'label';
     if (done) {
       classNames += ' completed-task';
     }
 
     let editingElem;
     if (editing) {
+      classNameLabel += ' label-padding';
       editingElem = (
-        <label className='label'><input className='description form-control' onChange={onChangeHandler} defaultValue={stateTask} />{' '}
+        <label className={classNameLabel} ><input className='description form-control' onChange={onChangeHandler} defaultValue={stateTask} />{' '}
         </label>
       )
     } else {
       editingElem = (
-        <label >
+        <label className={classNameLabel}>
           <a href='#id' className={classNames} onClick={onToggleDone} onKeyDown={onToggleDone}>{stateTask}</a>{' '}
           <span className='created'>{date} created ago</span>
                  <button  aria-label = 'Edit' type='button'  className='icon icon-edit' onClick={changeItem}  />
