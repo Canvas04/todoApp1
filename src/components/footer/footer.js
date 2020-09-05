@@ -5,13 +5,14 @@ import './footer.css';
 
 class Footer extends Component {
   render() {
-    const { todoCount, doneCount, handlerAll, handlerActive, handlerDone, removeCompletedItem } = this.props;
+    const { todoCount, doneCount, handlerFilterChange, handlerActive, handlerDone, removeCompletedItem ,filter,changeFilter} = this.props;
+
     return (
       <footer className="footer">
         <span className="todo-count">
           {todoCount} left, {doneCount} done
         </span>
-        <FilterList handlerAll={handlerAll} handlerActive={handlerActive} handlerDone={handlerDone}/>
+        <FilterList   filter={filter} changeFilter={changeFilter}/>
         <button type="button" className="clear-completed" onClick={removeCompletedItem}>
           Clear completed
         </button>
@@ -29,8 +30,5 @@ Footer.propTypes = {
   removeCompletedItem: PropTypes.func,
   doneCount: PropTypes.number,
   todoCount: PropTypes.number,
-  handlerAll: PropTypes.func,
-  handlerActive: PropTypes.func,
-  handlerDone: PropTypes.func,
 };
 export default Footer;

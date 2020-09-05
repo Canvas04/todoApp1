@@ -5,11 +5,11 @@ import TodoList from '../taskList';
 import Footer from '../footer';
 import './main.css';
 
-function Main({todos,onDeleted,onToggleDone,changeItem,onSubmit,handlerAll,handlerActive,handlerDone,onChangeHandler,doneCount,todoCount,removeCompletedItem}) {
+function Main({todos,onDeleted,onToggleDone,changeItem,onSubmit,handlerFilterChange,onChangeHandler,doneCount,todoCount,removeCompletedItem,filter,changeFilter}) {
   return (
       <section className='main'>
-        <TodoList todos = {todos}  onDeleted = {onDeleted} onToggleDone = {onToggleDone}  changeItem = {changeItem} onSubmit={onSubmit} onChangeHandler= {onChangeHandler} />
-        <Footer doneCount={doneCount} handlerAll = {handlerAll} handlerActive={handlerActive} handlerDone={handlerDone} todoCount={todoCount} removeCompletedItem={removeCompletedItem}/>
+        <TodoList todos = {todos}  onDeleted = {onDeleted} onToggleDone = {onToggleDone}  changeItem = {changeItem} onSubmit={onSubmit} filter={filter} onChangeHandler= {onChangeHandler} />
+        <Footer doneCount={doneCount} todoCount={todoCount} removeCompletedItem={removeCompletedItem} filter={filter} changeFilter={changeFilter}/>
       </section>
     )
   }
@@ -31,9 +31,6 @@ Main.propTypes = {
   onToggleDone : PropTypes.func,
   doneCount: PropTypes.number.isRequired,
   todoCount: PropTypes.number.isRequired,
-  handlerAll: PropTypes.func,
-  handlerActive: PropTypes.func,
-  handlerDone: PropTypes.func,
   removeCompletedItem: PropTypes.func,
   onChangeHandler: PropTypes.func,
   onSubmit: PropTypes.func,

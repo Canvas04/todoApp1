@@ -16,6 +16,7 @@ class App extends Component {
       this.createTodoItem('Editing Task'),
       this.createTodoItem('Active Task'),
     ],
+    filter:'all'
   };
 
   removeItem = (id) => {
@@ -106,31 +107,10 @@ class App extends Component {
     });
   };
 
-
-handlerAll = () => {
-  
-const {data} = this.state;
-console.log(data);
-this.setState({
-  data: [...data]
-})
+changeFilter = (filterValue) => {
+this.setState({filter:filterValue});
 }
 
-handlerActive = () => {
-  const {data} = this.state;
-const active = data.filter(el => !el.done)
- this.setState({
-   data: active
- })
-}
-
-handlerDone = () => {
-  const {data} = this.state;
-const done = data.filter(el => el.done);
-this.setState({
-  data: done
-})
-}
 
   createTodoItem(text) {
     return {
@@ -144,7 +124,7 @@ this.setState({
   }
 
   render() {
-    const { data } = this.state;
+    const { data,filter } = this.state;
     const doneCount = data.filter((el) => el.done).length;
     const todoCount = data.length - doneCount;
 
@@ -156,15 +136,14 @@ this.setState({
           done={data.done}
           doneCount={doneCount}
           todoCount={todoCount}
-          handlerAll={this.handlerAll}
-          handlerActive={this.handlerActive}
-          handlerDone={this.handlerDone}
           onDeleted={this.removeItem}
           onToggleDone={this.onToggleDone}
           removeCompletedItem={this.removeCompletedItem}
           changeItem={this.changeItem}
           onChangeHandler={this.onChangeHandler}
           onSubmit={this.onSubmit}
+          filter={filter}
+          changeFilter={this.changeFilter}
         />
       </section>
     );
