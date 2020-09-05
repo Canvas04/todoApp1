@@ -33,7 +33,7 @@ class App extends Component {
     this.setState(({ data }) => {
       newObj.date = formatDistanceToNow(new Date(), { includeSeconds: true });
       const newTime = data.map((el) => {
-        el.date = formatDistanceToNow(el.time, { includeSeconds: true });
+        el.date = formatDistanceToNow(el.time, { includeSeconds: true }); // eslint-disable-line no-param-reassign
         return el;
       });
       return {

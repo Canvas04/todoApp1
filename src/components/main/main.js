@@ -5,7 +5,7 @@ import TodoList from '../taskList';
 import Footer from '../footer';
 import './main.css';
 
-function Main({todos,onDeleted,onToggleDone,changeItem,onSubmit,handlerFilterChange,onChangeHandler,doneCount,todoCount,removeCompletedItem,filter,changeFilter}) {
+function Main({todos,onDeleted,onToggleDone,changeItem,onSubmit,onChangeHandler,doneCount,todoCount,removeCompletedItem,filter,changeFilter}) {
   return (
       <section className='main'>
         <TodoList todos = {todos}  onDeleted = {onDeleted} onToggleDone = {onToggleDone}  changeItem = {changeItem} onSubmit={onSubmit} filter={filter} onChangeHandler= {onChangeHandler} />
@@ -21,7 +21,8 @@ Main.defaultProps = {
   onChangeHandler: () => {},
   onSubmit: () => {},
   changeItem: () => {},
-  
+  filter: 'all',
+  changeFilter: () => {}
 }
 
 Main.propTypes = {
@@ -34,6 +35,8 @@ Main.propTypes = {
   removeCompletedItem: PropTypes.func,
   onChangeHandler: PropTypes.func,
   onSubmit: PropTypes.func,
-  changeItem: PropTypes.func
+  changeItem: PropTypes.func,
+  filter: PropTypes.string,
+  changeFilter: PropTypes.func
 }
 export default Main;

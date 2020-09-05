@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import FilterList from '../taskFilter';
 import './footer.css';
 
-class Footer extends Component {
-  render() {
-    const { todoCount, doneCount, handlerFilterChange, handlerActive, handlerDone, removeCompletedItem ,filter,changeFilter} = this.props;
+function Footer ({todoCount, doneCount,  removeCompletedItem ,filter,changeFilter}) {
+
 
     return (
       <footer className="footer">
@@ -18,17 +17,20 @@ class Footer extends Component {
         </button>
       </footer>
     );
-  }
+  
 }
 
 Footer.defaultProps = {
   removeCompletedItem: () => {},
   doneCount: 0,
   todoCount: 0,
+  changeFilter: () => {}
 };
 Footer.propTypes = {
   removeCompletedItem: PropTypes.func,
   doneCount: PropTypes.number,
   todoCount: PropTypes.number,
+  filter: PropTypes.string.isRequired,
+  changeFilter: PropTypes.func
 };
 export default Footer;

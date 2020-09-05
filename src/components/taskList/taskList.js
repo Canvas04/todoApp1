@@ -29,7 +29,8 @@ TodoList.defaultProps = {
   onChangeHandler: () => {},
   onSubmit: () => {},
   changeItem: () => {},
-  onDeleted: () => {}
+  onDeleted: () => {},
+  filter: 'all'
 }
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
@@ -37,6 +38,7 @@ TodoList.propTypes = {
   onChangeHandler: PropTypes.func,
   onSubmit: PropTypes.func,
   changeItem: PropTypes.func,
-  onDeleted: PropTypes.func
+  onDeleted: PropTypes.func,
+  filter: PropTypes.string
 }
 export default TodoList;

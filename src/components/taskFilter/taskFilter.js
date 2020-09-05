@@ -2,7 +2,7 @@ import React from 'react';
 import './taskFilter.css';
 import PropTypes from 'prop-types';
 
-const FilterList = ({filter,changeFilter }) => {
+const FilterList = ({changeFilter }) => {
   
   const handlerFilterChange = (e) => {
 changeFilter(e.currentTarget.dataset.value)
@@ -27,7 +27,6 @@ FilterList.defaultProps = {
  
 }
 FilterList.propTypes = {
-  filter: PropTypes.string.isRequired,
   changeFilter: PropTypes.func
 }
 export default FilterList;
