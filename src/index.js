@@ -11,11 +11,7 @@ class App extends Component {
   date = new Date();
 
   state = {
-    data: [
-      this.createTodoItem('Completed task'),
-      this.createTodoItem('Editing Task'),
-      this.createTodoItem('Active Task'),
-    ],
+    data: [],
     filter:'all'
   };
 
