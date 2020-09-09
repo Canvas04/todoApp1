@@ -45,6 +45,7 @@ TaskListItem.defaultProps = {
 	onSubmit: () => {},
 	changeItem: () => {},
 	editing: false,
+	isChecked: false
 };
 TaskListItem.propTypes = {
 	className: PropTypes.string,
@@ -57,4 +58,5 @@ TaskListItem.propTypes = {
 	onSubmit: PropTypes.func,
 	changeItem: PropTypes.func,
 	editing: PropTypes.bool,
+	isChecked: PropTypes.bool
 };

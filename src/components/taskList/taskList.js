@@ -3,7 +3,7 @@ import './taskList.css';
 import PropTypes from 'prop-types';
 import TaskListItem from '../taskListItem';
 
-function TodoList({ todos, filter, onDeleted, onToggleDone, changeItem, onSubmit, onChangeHandler,isChecked }) {
+function TodoList({ todos, filter, onDeleted, onToggleDone, changeItem, onSubmit, onChangeHandler }) {
 	let filteredData;
 	if (filter === 'all') filteredData = todos;
 	if (filter === 'active') filteredData = todos.filter((el) => !el.done);

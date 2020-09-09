@@ -8,7 +8,6 @@ function Task({ done, editing, onChangeHandler, stateTask, date, onToggleDone, o
 	if (done) {
 		classNames += ' completed-task';
 	}
-console.log(isChecked);
 	let editingElem;
 	if (editing) {
 		classNameLabel += ' label-padding';
@@ -50,6 +49,7 @@ Task.defaultProps = {
 	onSubmit: () => {},
 	changeItem: () => {},
 	editing: false,
+	isChecked: false
 };
 Task.propTypes = {
 	done: PropTypes.bool,
@@ -61,5 +61,6 @@ Task.propTypes = {
 	onSubmit: PropTypes.func,
 	changeItem: PropTypes.func,
 	editing: PropTypes.bool,
+	isChecked: PropTypes.bool
 };
 export default Task;

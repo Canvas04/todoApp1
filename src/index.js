@@ -46,7 +46,6 @@ class App extends Component {
 			const oldItem = data[idx];
 			const newItem = { ...oldItem, done: !oldItem.done ,isChecked: !oldItem.isChecked};
 			const newArray = [...data.slice(0, idx), newItem, ...data.slice(idx + 1)];
-			console.log(newArray);
 			return {
 				data: newArray,
 			};
@@ -122,7 +121,7 @@ class App extends Component {
 	}
 
 	render() {
-		const { data, filter,isChecked } = this.state;
+		const { data, filter} = this.state;
 		const doneCount = data.filter((el) => el.done).length;
 		const todoCount = data.length - doneCount;
 
@@ -134,7 +133,6 @@ class App extends Component {
 					done={data.done}
 					doneCount={doneCount}
 					todoCount={todoCount}
-					isChecked = {isChecked}
 					onDeleted={this.removeItem}
 					onToggleDone={this.onToggleDone}
 					removeCompletedItem={this.removeCompletedItem}
