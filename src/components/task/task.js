@@ -2,19 +2,19 @@ import React from 'react';
 import './task.css';
 import PropTypes from 'prop-types';
 
-function Task({ done, editing, onChangeHandler, stateTask, date, onToggleDone, onSubmit, changeItem, onDeleted }) {
+function Task({ done, editing, onChangeHandler, stateTask, date, onToggleDone, onSubmit, changeItem, onDeleted ,isChecked}) {
 	let classNames = 'description ';
 	let classNameLabel = 'label';
 	if (done) {
 		classNames += ' completed-task';
 	}
-
+console.log(isChecked);
 	let editingElem;
 	if (editing) {
 		classNameLabel += ' label-padding';
 		editingElem = (
 			<label className={classNameLabel}>
-				<input className="description form-control" onChange={onChangeHandler} defaultValue={stateTask} />{' '}
+				<input className="description form-control"   onChange={onChangeHandler} defaultValue={stateTask} />{' '}
 			</label>
 		);
 	} else {
@@ -32,7 +32,7 @@ function Task({ done, editing, onChangeHandler, stateTask, date, onToggleDone, o
 	return (
 		<form onSubmit={onSubmit}>
 			<div className="view">
-				<input className="toggle" type="checkbox" />
+				<input className="toggle" checked={isChecked} onChange={onToggleDone} type="checkbox" />
 
 				{editingElem}
 			</div>

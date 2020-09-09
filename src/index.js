@@ -44,8 +44,9 @@ class App extends Component {
 		this.setState(({ data }) => {
 			const idx = data.findIndex((el) => el.id === id);
 			const oldItem = data[idx];
-			const newItem = { ...oldItem, done: !oldItem.done };
+			const newItem = { ...oldItem, done: !oldItem.done ,isChecked: !oldItem.isChecked};
 			const newArray = [...data.slice(0, idx), newItem, ...data.slice(idx + 1)];
+			console.log(newArray);
 			return {
 				data: newArray,
 			};
@@ -115,12 +116,13 @@ class App extends Component {
 			time: new Date(),
 			date: formatDistanceToNow(new Date(), { includeSeconds: true }),
 			done: false,
-			editing: false,
+      editing: false,
+      isChecked: false
 		};
 	}
 
 	render() {
-		const { data, filter } = this.state;
+		const { data, filter,isChecked } = this.state;
 		const doneCount = data.filter((el) => el.done).length;
 		const todoCount = data.length - doneCount;
 
@@ -132,6 +134,7 @@ class App extends Component {
 					done={data.done}
 					doneCount={doneCount}
 					todoCount={todoCount}
+					isChecked = {isChecked}
 					onDeleted={this.removeItem}
 					onToggleDone={this.onToggleDone}
 					removeCompletedItem={this.removeCompletedItem}

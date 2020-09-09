@@ -17,6 +17,7 @@ function Main({
 	removeCompletedItem,
 	filter,
 	changeFilter,
+	isChecked
 }) {
 	return (
 		<section className="main">
@@ -27,6 +28,7 @@ function Main({
 				changeItem={changeItem}
 				onSubmit={onSubmit}
 				filter={filter}
+				isChecked={isChecked}
 				onChangeHandler={onChangeHandler}
 			/>
 			<Footer

@@ -3,7 +3,7 @@ import './taskList.css';
 import PropTypes from 'prop-types';
 import TaskListItem from '../taskListItem';
 
-function TodoList({ todos, filter, onDeleted, onToggleDone, changeItem, onSubmit, onChangeHandler }) {
+function TodoList({ todos, filter, onDeleted, onToggleDone, changeItem, onSubmit, onChangeHandler,isChecked }) {
 	let filteredData;
 	if (filter === 'all') filteredData = todos;
 	if (filter === 'active') filteredData = todos.filter((el) => !el.done);
@@ -17,6 +17,7 @@ function TodoList({ todos, filter, onDeleted, onToggleDone, changeItem, onSubmit
 				stateTask={el.text}
 				key={el.id}
 				date={el.date}
+				isChecked={el.isChecked}
 				onDeleted={() => onDeleted(el.id)}
 				onToggleDone={(e) => onToggleDone(el.id, e)}
 				changeItem={() => changeItem(el.id)}

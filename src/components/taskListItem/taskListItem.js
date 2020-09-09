@@ -14,6 +14,7 @@ export default function TaskListItem({
 	editing,
 	onSubmit,
 	onChangeHandler,
+	isChecked
 }) {
 	return (
 		<li className={className}>
@@ -23,6 +24,7 @@ export default function TaskListItem({
 				onDeleted={onDeleted}
 				onToggleDone={onToggleDone}
 				done={done}
+				isChecked={isChecked}
 				changeItem={changeItem}
 				editing={editing}
 				onSubmit={onSubmit}
