@@ -58,7 +58,7 @@ Main.propTypes = {
 			text: PropTypes.string.isRequired,
 			date: PropTypes.string.isRequired,
 			editing: PropTypes.bool.isRequired,
-			isChecked: PropTypes.bool.isRequired
+			isChecked: PropTypes.bool.isRequired,
 		})
 	).isRequired,
 	onDeleted: PropTypes.func,

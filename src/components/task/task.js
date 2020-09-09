@@ -2,7 +2,18 @@ import React from 'react';
 import './task.css';
 import PropTypes from 'prop-types';
 
-function Task({ done, editing, onChangeHandler, stateTask, date, onToggleDone, onSubmit, changeItem, onDeleted ,isChecked}) {
+function Task({
+	done,
+	editing,
+	onChangeHandler,
+	stateTask,
+	date,
+	onToggleDone,
+	onSubmit,
+	changeItem,
+	onDeleted,
+	isChecked,
+}) {
 	let classNames = 'description ';
 	let classNameLabel = 'label';
 	if (done) {
@@ -13,7 +24,7 @@ function Task({ done, editing, onChangeHandler, stateTask, date, onToggleDone, o
 		classNameLabel += ' label-padding';
 		editingElem = (
 			<label className={classNameLabel}>
-				<input className="description form-control"   onChange={onChangeHandler} defaultValue={stateTask} />{' '}
+				<input className="description form-control" onChange={onChangeHandler} defaultValue={stateTask} />{' '}
 			</label>
 		);
 	} else {
@@ -49,7 +60,7 @@ Task.defaultProps = {
 	onSubmit: () => {},
 	changeItem: () => {},
 	editing: false,
-	isChecked: false
+	isChecked: false,
 };
 Task.propTypes = {
 	done: PropTypes.bool,
@@ -61,6 +72,6 @@ Task.propTypes = {
 	onSubmit: PropTypes.func,
 	changeItem: PropTypes.func,
 	editing: PropTypes.bool,
-	isChecked: PropTypes.bool
+	isChecked: PropTypes.bool,
 };
 export default Task;
