@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { formatDistanceToNow } from 'date-fns';
 import Header from './components/header';
 import Main from './components/main';
+import './index.css';
 
 class App extends Component {
 	idItem = 100;
