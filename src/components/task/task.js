@@ -39,10 +39,11 @@ function Task({
 			</label>
 		);
 	}
+	
 	return (
 		<form onSubmit={onSubmit}>
 			<div className="view">
-				<input className="toggle" checked={isChecked} onChange={onToggleDone} type="checkbox" />
+				<input className="toggle" checked={isChecked} onInput={onToggleDone} onChange={() => {}}  type="checkbox" />
 
 				{editingElem}
 			</div>
