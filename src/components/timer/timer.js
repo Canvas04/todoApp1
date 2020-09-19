@@ -2,6 +2,7 @@ import React ,{Component} from 'react';
 import Buttons from './buttons';
 import ElapsedTime from './elapsed-time';
 import './timer.css';
+
 class Timer extends Component {
     constructor(props) {
         super(props);
@@ -14,17 +15,11 @@ class Timer extends Component {
          nonce: 0
     } 
 
-   
-  
-addTimerEvent = (e) => {
-    this.setState((state) => {
-        return {
-            timingEvents: [...state.timingEvents,new Date()]}
-        
-    })
+componentWillUnmount() {
+clearInterval(this.tick)
 }
 
- tick = () => {
+tick = () => {
      this.setState(state => {
          return {
              nonce: state.nonce + 1
@@ -32,6 +27,13 @@ addTimerEvent = (e) => {
      })
  }
 
+addTimerEvent = () => {
+    this.setState((state) => {
+        return {
+            timingEvents: [...state.timingEvents,new Date()]}
+        
+    })
+}
    render( ) {
        const {timingEvents} = this.state;
        return <div className='timer'>
