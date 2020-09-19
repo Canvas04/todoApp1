@@ -21,9 +21,6 @@ function TodoList({ todos, filter, onDeleted, onToggleDone, changeItem, onSubmit
 				onDeleted={() => onDeleted(el.id)}
 				onToggleDone={(e) => onToggleDone(el.id, e)}
 				changeItem={(e) => {
-					e.stopPropagation();
-					e.preventDefault();
-					e.nativeEvent.stopImmediatePropagation();
 					changeItem(el.id,e);
 				}}
 				editing={el.editing}

@@ -16,7 +16,9 @@ class Timer extends Component {
     } 
 
 componentWillUnmount() {
-clearInterval(this.tick)
+clearInterval(this.tick);
+clearInterval(this.addTimerEvent);
+clearInterval(this.poll)
 }
 
 tick = () => {
@@ -34,6 +36,7 @@ addTimerEvent = () => {
         
     })
 }
+
    render( ) {
        const {timingEvents} = this.state;
        return <div className='timer'>

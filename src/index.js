@@ -9,12 +9,13 @@ import './index.css';
 class App extends Component {
 	idItem = 100;
 
-	date = new Date();
+    date = new Date();
 
-	state = {
-		data: [],
-		filter: 'all',
+state = {
+        data: [],
+		filter: 'all'
 	};
+
 
 	removeItem = (id) => {
 		this.setState(({ data }) => {
@@ -105,6 +106,8 @@ class App extends Component {
 		});
 	};
 
+
+
 	changeFilter = (filterValue) => {
 		this.setState({ filter: filterValue });
 	};
@@ -120,6 +123,7 @@ class App extends Component {
 			isChecked: false,
 		};
 	}
+
 
 	render() {
 		const { data, filter } = this.state;
