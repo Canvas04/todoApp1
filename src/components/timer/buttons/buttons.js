@@ -16,5 +16,5 @@ export default function Buttons({handleClick,timingEvents}) {
 
 Buttons.propTypes = {
     handleClick: Proptypes.func.isRequired,
-    
+    timingEvents: Proptypes.arrayOf(Proptypes.object).isRequired
 }
