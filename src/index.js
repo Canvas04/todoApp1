@@ -84,6 +84,7 @@ class App extends Component {
 				data: newArray,
 			};
 		});
+		
 	};
 
 	onSubmit = (id, e) => {
@@ -126,6 +127,7 @@ class App extends Component {
 		const todoCount = data.length - doneCount;
 
 		return (
+			
 			<section className="todo-app">
 				<Header addItem={this.addItem} changeItem={this.changeItem} />
 				<Main
@@ -142,7 +144,10 @@ class App extends Component {
 					filter={filter}
 					changeFilter={this.changeFilter}
 				/>
+			
 			</section>
+		
+		
 		);
 	}
 }

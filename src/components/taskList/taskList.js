@@ -20,7 +20,12 @@ function TodoList({ todos, filter, onDeleted, onToggleDone, changeItem, onSubmit
 				isChecked={el.isChecked}
 				onDeleted={() => onDeleted(el.id)}
 				onToggleDone={(e) => onToggleDone(el.id, e)}
-				changeItem={() => changeItem(el.id)}
+				changeItem={(e) => {
+					e.stopPropagation();
+					e.preventDefault();
+					e.nativeEvent.stopImmediatePropagation();
+					changeItem(el.id,e);
+				}}
 				editing={el.editing}
 				onSubmit={(e) => onSubmit(el.id, e)}
 				onChangeHandler={(e) => onChangeHandler(el.id, e)}
